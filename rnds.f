@@ -1,4 +1,4 @@
-/ Random number server. Listening on port 80.
+\ Random number server. Listening on port 80.
 
 
 ~nn/lib/sock2.f 
