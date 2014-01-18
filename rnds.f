@@ -27,7 +27,7 @@ sockt ListenSocket THROW  ." Listen" CR
 
 BEGIN
 rnd
-
+ 
 sockt AcceptSocket THROW TO sockt2 ." Accept connection from: " 
  
 sockt2 GetPeerIP&Port THROW     SWAP        NtoA TYPE CR
