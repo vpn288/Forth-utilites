@@ -1,0 +1,20 @@
+MODULE: 
+: VALUED  
+         SHEADER ['] _CONSTANT-CODE COMPILE, ,
+         ['] _TOVALUE-CODE COMPILE, ;
+
+VOCABULARY values 
+ALSO values DEFINITIONS
+
+: NOTFOUND   VALUED 0  ;
+: ;VALUES  PREVIOUS DROP ;
+
+PREVIOUS DEFINITIONS 
+
+
+EXPORT : VALUES: ALSO values 0 ;
+
+ ;MODULE
+
+\ How to use:
+\ VALUES: nn bb vv ;VALUES
