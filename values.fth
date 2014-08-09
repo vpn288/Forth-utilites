@@ -22,5 +22,3 @@ EXPORT : VALUES: ALSO values ;
 
  ;MODULE
 
-\ How to use:
-\ VALUES: nn bb vv ;VALUES
