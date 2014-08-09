@@ -1,4 +1,4 @@
-stack.txt
+lstack.fth
 
 VOCABULARY winlibs
 ALSO winlibs DEFINITIONS
