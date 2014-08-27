@@ -26,7 +26,7 @@ Dots: dots1
 	163 , 186 ,
 ;Dots
 
-dots1 copy_to dots2
+dots1 copy_to dots2 
 .( dots1: )
 dots1 dotstype CR
 .( dots2: )
@@ -75,6 +75,8 @@ M: wm_mousemove
  
 MESSAGES;
 
+: xy	2* CELLS dots2 CELL+ + ;
+
 : calc_distance { x0 y0 xi yi } x0 xi - DUP * y0 yi - DUP * + S>D D>F FSQRT F>D D>S ;
 
 : calc_way { | dist  adr }
@@ -88,18 +90,21 @@ MESSAGES;
 : do_dot	
 		ctls @
 		thisctl	ctls ! 
-		thisctl -userdata@ CELLS ctls + !
+		thisctl -userdata@ 	CELLS ctls + !
 
 		red 	1stdotctl  	-bgcolor! 
-		1stdotctl -userdata@ DUP CR ." 1st ctl:" . 
-		2* CELLS   dots2 CELL+ + 2@
+		
+		1stdotctl -userdata@  CR ." 1st ctl:" .
+		
+		1stdotctl -userdata@	 xy 2@
 
 		blue 	thisctl 	-bgcolor! 
+		
 		thisctl -userdata@  ."  presd ctl:"  . 
 		
-		thisctl 		2* CELLS dots2 CELL+ + 2@
-		1stdotctl -userdata@	2* CELLS dots2 CELL+ + 2!
-		thisctl -userdata@	2* CELLS dots2 CELL+ + 2!
+		thisctl 		xy 2@
+		1stdotctl -userdata@	xy 2!
+		thisctl   -userdata@	xy 2!
 		1stdotctl	-userdata@
 		thisctl 	-userdata@
 		1stdotctl	-userdata!
