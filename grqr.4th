@@ -95,19 +95,16 @@ MESSAGES;
 		2* CELLS   dots2 CELL+ + 2@
 
 		blue 	thisctl 	-bgcolor! 
-		thisctl -userdata@ DUP ."  presd ctl:"  . 
-		2* CELLS dots2 CELL+ + 2@
-		1stdotctl -userdata@
-		2* CELLS dots2 CELL+ + 2!
-		thisctl -userdata@
-		2* CELLS dots2 CELL+ + 2!
+		thisctl -userdata@  ."  presd ctl:"  . 
+		
+		thisctl 		2* CELLS dots2 CELL+ + 2@
+		1stdotctl -userdata@	2* CELLS dots2 CELL+ + 2!
+		thisctl -userdata@	2* CELLS dots2 CELL+ + 2!
 		1stdotctl	-userdata@
 		thisctl 	-userdata@
 		1stdotctl	-userdata!
 		thisctl		-userdata!
 		thisctl TO 1stdotctl 
-		
-		
 		
 	CR ." dotstype:"
 		dots2 dotstype 
