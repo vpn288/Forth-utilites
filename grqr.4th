@@ -102,7 +102,7 @@ MESSAGES;
 		
 		thisctl -userdata@  ."  presd ctl:"  . 
 		
-		thisctl 		xy 2@
+		thisctl   -userdata@	xy 2@
 		1stdotctl -userdata@	xy 2!
 		thisctl   -userdata@	xy 2!
 		1stdotctl	-userdata@
