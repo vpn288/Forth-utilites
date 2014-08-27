@@ -126,14 +126,14 @@ MESSAGES;
 <> IF 
 	( покласть на стек дотмные ху и ктл ) 
 		dot_m		CELLS ctls + @ \ вытащили дотмный ктл
-		dot_m		2* CELLS dots2 CELL+ + 2@ \ вытащили дотмные ху
+		dot_m		xy 2@ \ вытащили дотмные ху
 		thisctl 	-userdata@  TO userdat \ спасли индекс нажатой точки
 ( сохранить дотмный ху на место нажатой копки )
-		userdat 	2* CELLS dots2 CELL+ + 2@ \ вытащили нажатый ху
+		userdat 	xy 2@ \ вытащили нажатый ху
 		
-		dot_m 		2* CELLS dots2 CELL+ + 2! \ сохранили нажатый ху на дотмное место
+		dot_m 		xy 2! \ сохранили нажатый ху на дотмное место
 		
-		userdat 	2* CELLS dots2 CELL+ + 2! \ сохранили дотмный ху на нажатое место 
+		userdat 	xy 2! \ сохранили дотмный ху на нажатое место 
 ( индекс нажатой точки ставится дотм, индекс нажатой точки присваивается точке ктл которой получается по дотм )
 		userdat DUP ."   pressed dot:" .
 
@@ -147,8 +147,8 @@ ELSE
 		.  
 THEN
 		
-		\ 200 20  "  Way length:" label place
-		 calc_way S>D (D.) DROP way_txt -text!
+		
+		calc_way S>D (D.) DROP way_txt -text!
 		winmain force-redraw 
 		
 		dots2 dotstype 
