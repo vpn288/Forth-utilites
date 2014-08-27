@@ -72,30 +72,7 @@ MESSAGES: my
 
 M: wm_mousemove
    lparam . 
-  TRUE
-M;
-M: wm_mousehover
-   lparam . 
-  TRUE
-M;
-M: wm_lbuttondown
-  ." left buuton "  CR  lparam . 
-  TRUE
-M;
-M: wm_lbuttonup
-  ." left buuton up "  CR  lparam . 
-  TRUE
-M;
-M: wm_ncmousemove
-  ." nc move "  CR  lparam . 
-  TRUE
-M;
-M: wm_rbuttonup
-  ." left buuton "  CR  lparam . 
-  TRUE
-M;
-
-
+ 
 MESSAGES;
 
 : calc_distance { x0 y0 xi yi } x0 xi - DUP * y0 yi - DUP * + S>D D>F FSQRT F>D D>S ;
@@ -137,6 +114,7 @@ MESSAGES;
 	  calc_way S>D (D.) DROP way_txt -text!
 		winmain force-redraw 
 ;
+
 : do_dot_main 	gg @ EXECUTE ;
 
 : do_dot_m	{ | userdat } CR ."  dotted " 
