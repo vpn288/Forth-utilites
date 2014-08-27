@@ -72,7 +72,7 @@ MESSAGES: my
 
 M: wm_mousemove
    lparam . 
- 
+M; 
 MESSAGES;
 
 : xy	2* CELLS dots2 CELL+ + ;
