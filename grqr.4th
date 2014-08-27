@@ -106,9 +106,8 @@ MESSAGES;
 		thisctl		-userdata!
 		thisctl TO 1stdotctl 
 		
-	CR ." dotstype:"
-		dots2 dotstype 
-	  calc_way S>D (D.) DROP way_txt -text!
+	CR ." dotstype:"	dots2 dotstype 
+	calc_way S>D (D.) DROP way_txt -text!
 		winmain force-redraw 
 ;
 
@@ -122,20 +121,20 @@ MESSAGES;
 <> IF 
 	( покласть на стек дотмные ху и ктл ) 
 		dot_m		CELLS ctls + @ \ вытащили дотмный ктл
-		dot_m	2* CELLS dots2 CELL+ + 2@ \ вытащили дотмные ху
+		dot_m		2* CELLS dots2 CELL+ + 2@ \ вытащили дотмные ху
 		thisctl 	-userdata@  TO userdat \ спасли индекс нажатой точки
 ( сохранить дотмный ху на место нажатой копки )
-		userdat 2* CELLS dots2 CELL+ + 2@ \ вытащили нажатый ху
+		userdat 	2* CELLS dots2 CELL+ + 2@ \ вытащили нажатый ху
 		
-		dot_m 2* CELLS dots2 CELL+ + 2! \ сохранили нажатый ху на дотмное место
+		dot_m 		2* CELLS dots2 CELL+ + 2! \ сохранили нажатый ху на дотмное место
 		
-		userdat 2* CELLS dots2 CELL+ + 2! \ сохранили дотмный ху на нажатое место 
+		userdat 	2* CELLS dots2 CELL+ + 2! \ сохранили дотмный ху на нажатое место 
 ( индекс нажатой точки ставится дотм, индекс нажатой точки присваивается точке ктл которой получается по дотм )
 		userdat DUP ."   pressed dot:" .
 
 		dot_m	thisctl		-userdata! \ присвоили дотмный индекс нажатой точке
-		thisctl -userdata@ CR ." New index of pressed dot:" . CR
-		dot_m CELLS ctls + @ -userdata! \ присвоили нажатый индекс дотмной точке
+	
+		dot_m 	CELLS ctls + @ -userdata! \ присвоили нажатый индекс дотмной точке
 ( ктл точки с дотм номером надо запихнуть на место ктл точки висктл юзердата )
 		
 		userdat CELLS ctls + ! \ сохранили дотмный ктл на нажатое место
