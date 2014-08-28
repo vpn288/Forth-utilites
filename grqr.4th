@@ -18,6 +18,7 @@ VALUES:
 	 way_txt
 	 nearest_dot
 	 min_distance
+	 
 ;VALUES
 
 
@@ -95,6 +96,14 @@ MESSAGES;
                                       LOOP dist CR ." distance: " . dist 
                                       ."  minimal distance:" min_distance . ;
 
+: calc_way_m { | dist  adr }
+                  100000 TO min_distance
+                  dot_m CELLS dots2 CELL+ + TO adr dots2 @ dot_m -    0 DO adr  2@ adr CELL+ CELL+ DUP TO adr 2@ 
+                                        
+                                        calc_distance   dist + TO dist dist ?min_distance
+                                        
+                                      LOOP dist CR ." distance: " . dist 
+                                      ."  minimal distance:" min_distance . ;
 
 : do_dot	
 		ctls @
