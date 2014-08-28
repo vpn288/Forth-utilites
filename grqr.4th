@@ -12,7 +12,12 @@ dots.txt
 GROUP gg
 
 VALUES: 
-	 win 1stdotctl dot_m way_txt
+	 win 
+	 1stdotctl 
+	 dot_m 
+	 way_txt
+	 nearest_dot
+	 min_distance
 ;VALUES
 
 
@@ -79,12 +84,16 @@ MESSAGES;
 
 : calc_distance { x0 y0 xi yi } x0 xi - DUP * y0 yi - DUP * + S>D D>F FSQRT F>D D>S ;
 
+: ?min_distance DUP min_distance < IF TO min_distance THEN ;
+
 : calc_way { | dist  adr }
+                  100000 TO min_distance
                   dots2 CELL+ TO adr dots2 @ 1-   0 DO adr  2@ adr CELL+ CELL+ DUP TO adr 2@ 
                                         
-                                        calc_distance   dist + TO dist
+                                        calc_distance   dist + TO dist dist ?min_distance
                                         
-                                      LOOP dist CR ." distance: " . dist ;
+                                      LOOP dist CR ." distance: " . dist 
+                                      ."  minimal distance:" min_distance . ;
 
 
 : do_dot	
