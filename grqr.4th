@@ -80,7 +80,7 @@ MESSAGES;
 : calc_distance { x0 y0 xi yi } x0 xi - DUP * y0 yi - DUP * + S>D D>F FSQRT F>D D>S ;
 
 : calc_way { | dist  adr }
-                  dots2 CELL+ TO adr dots2 @   0 DO adr  2@ adr CELL+ CELL+ DUP TO adr 2@ 
+                  dots2 CELL+ TO adr dots2 @ 1-   0 DO adr  2@ adr CELL+ CELL+ DUP TO adr 2@ 
                                         
                                         calc_distance   dist + TO dist
                                         
