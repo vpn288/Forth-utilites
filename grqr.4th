@@ -168,7 +168,7 @@ ELSE
 THEN
 		
 		
-		calc_way S>D (D.) DROP way_txt -text!
+		calc_way_m S>D (D.) DROP way_txt -text!
 		winmain force-redraw 
 		
 		dots2 dotstype 
