@@ -15,6 +15,7 @@ VALUES:
 	 win 
 	 1stdotctl 
 	 dot_m 
+	 dot_n
 	 way_txt
 	 nearest_dot
 	 min_distance
@@ -85,7 +86,8 @@ MESSAGES;
 
 : calc_distance { x0 y0 xi yi } x0 xi - DUP * y0 yi - DUP * + S>D D>F FSQRT F>D D>S ;
 
-: ?min_distance		min_distance MIN TO min_distance  ;
+: ?min_distance ( I dist -- )
+		DUP min_distance < IF  TO min_distance TO dot_n ;
 
 : calc_way { | dist  adr }
                   100000 TO min_distance
@@ -100,10 +102,10 @@ MESSAGES;
                   100000 TO min_distance
                   dot_m CELLS dots2 CELL+ + TO adr dots2 @ dot_m -    0 DO adr  2@ adr CELL+ CELL+ DUP TO adr 2@ 
                                         
-                                        calc_distance   dist + TO dist dist ?min_distance
+                                        calc_distance   dist + TO dist I dist ?min_distance
                                         
                                       LOOP dist CR ." distance: " . dist 
-                                      ."  minimal distance:" min_distance . ;
+                                      ."  minimal distance:" min_distance . ."  to dot:" dot_n . ;
 
 : do_dot	
 		ctls @
