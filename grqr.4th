@@ -87,7 +87,7 @@ MESSAGES;
 : calc_distance { x0 y0 xi yi } x0 xi - DUP * y0 yi - DUP * + S>D D>F FSQRT F>D D>S ;
 
 : ?min_distance ( I dist -- )
-		DUP min_distance < IF  TO min_distance TO dot_n ;
+		DUP min_distance < IF  TO min_distance TO dot_n THEN ;
 
 : calc_way { | dist  adr }
                   100000 TO min_distance
