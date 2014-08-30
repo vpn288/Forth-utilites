@@ -100,7 +100,15 @@ MESSAGES;
 
 : calc_way_m { | dist  adr }
                   100000 TO min_distance
-                  dot_m CELLS dots2 CELL+ + TO adr dots2 @ dot_m -    0 DO adr  2@ adr CELL+ CELL+ DUP TO adr 2@ 
+                  0 xy TO adr dots2 @ dot_m -    0 DO adr  2@ adr CELL+ CELL+ DUP TO adr 2@ 
+                                        
+                                        calc_distance  DUP I SWAP  ?min_distance dist + TO dist I dist ?min_distance
+                                        
+                                      LOOP dist CR ." distance: " . dist 
+                                      ."  minimal distance:" min_distance . ."  to dot:" dot_n . ;
+: calc_dist { | dist  adr  x0 y0 }
+                  100000 TO min_distance
+                  0 xy TO adr adr 2@ TO y0 TO x0  dots2 @ dot_m -    0 DO x0 y0 I xy 
                                         
                                         calc_distance  DUP I SWAP  ?min_distance dist + TO dist I dist ?min_distance
                                         
