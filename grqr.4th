@@ -93,10 +93,10 @@ MESSAGES;
                   100000 TO min_distance
                   dots2 CELL+ TO adr dots2 @ 1-   0 DO adr  2@ adr CELL+ CELL+ DUP TO adr 2@ 
                                         
-                                        calc_distance   dist + TO dist dist ?min_distance
+                                        calc_distance   dist + TO dist I dist ?min_distance
                                         
                                       LOOP dist CR ." distance: " . dist 
-                                      ."  minimal distance:" min_distance . ;
+                                      ."  minimal distance:" min_distance . ."  to dot:" dot_n . ;
 
 : calc_way_m { | dist  adr }
                   100000 TO min_distance
